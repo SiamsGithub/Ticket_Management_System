@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind & DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              btnColor: "#1DD100",
+              grayColor: "#89898B",
+              inputColor: "#F8F8F8",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-raleway {
+        font-family: "Raleway", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .font-inter {
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+    <title>Smart Tickets</title>
+  </head>
+  <body class="font-raleway">
+    <header class="container mx-auto">
+      <nav>
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li class="hover:text-btnColor"><a>Home</a></li>
+                <li class="hover:text-btnColor"><a>About</a></li>
+                <li class="hover:text-btnColor"><a>Destination</a></li>
+                <li class="hover:text-btnColor"><a>Search</a></li>
+              </ul>
+            </div>
+            <a class="text-sm lg:text-2xl font-bold cursor-pointer"
+              >S-Tickets</a
+            >
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li class="hover:text-btnColor"><a>Home</a></li>
+              <li class="hover:text-btnColor"><a>About</a></li>
+              <li class="hover:text-btnColor"><a>Destination</a></li>
+              <li class="hover:text-btnColor"><a>Search</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <div
+              class="flex items-center gap-2 bg-btnColor bg-opacity-10 text-btnColor border border-btnColor border-opacity-50 rounded-lg px-6 py-2"
+            >
+              <p class="font-bold">Bus</p>
+              <div><img src="./images/bus-icon.png" alt="" /></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="upper container mx-auto">
+        <section class="part-1 mx-3 lg:mx-0">
+          <div
+            class="hero min-h-screen rounded-[32px]"
+            style="background-image: url('/images/banner.png')"
+          >
+            <div class="hero-content text-white text-center">
+              <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">
+                  End-to-End Travel with
+                  <span class="text-btnColor">Smart Tickets</span>
+                </h1>
+                <p class="mb-5">
+                  Yes, you can run unit tests and view the results directly
+                  within the app. The integrated testing features allow for a
+                  streamlined.
+                </p>
+                <button
+                  class="bg-btnColor font-bold text-black rounded-lg px-6 py-3"
+                  onclick="jumpToSection('seat-selection')"
+                >
+                  Buy Tickets
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="part-2 my-10 lg:my-20 mx-3 lg:mx-0">
+          <p class="text-4xl font-bold text-center pb-10">
+            Best offers for you
+          </p>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div
+              class="bg-[#FFBF0F] rounded-2xl p-12 flex flex-col lg:flex-row justify-between lg:items-center"
+            >
+              <div class="font-inter mb-2 lg:mb-0">
+                <p class="text-4xl font-bold">15% OFF</p>
+                <p class="font-bold">on your next purchase</p>
+                <p class="text-gray-600">use by January 2024</p>
+              </div>
+              <div class="font-raleway">
+                <p class="text-3xl font-bold">NEW15</p>
+                <p class="text-gray-600">Coupon Code</p>
+              </div>
+            </div>
+            <div
+              class="bg-[#F78C9C] rounded-2xl p-12 flex flex-col lg:flex-row justify-between lg:items-center"
+            >
+              <div class="font-inter mb-2 lg:mb-0">
+                <p class="text-4xl font-bold">20% OFF</p>
+                <p class="font-bold">on your next purchase</p>
+                <p class="text-gray-600">use by January 2024</p>
+              </div>
+              <div class="font-raleway">
+                <p class="text-3xl font-bold">Couple 20</p>
+                <p class="text-gray-600">Coupon Code</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-14">
+            <button
+              class="flex items-center gap-2 text-btnColor border border-btnColor border-opacity-50 rounded-lg px-6 py-3"
+            >
+              <p class="font-bold">See All Offers</p>
+            </button>
+          </div>
+        </section>
+      </section>
+      <section
+        class="lower my-10 lg:my-20 mx-3 lg:mx-0 bg-[#F7F8F8] border-t border-t-[#1DD100] rounded-t-2xl lg:rounded-t-[88px] font-inter"
+      >
+        <div class="container mx-auto">
+          <div class="my-10 lg:my-20">
+            <p class="text-4xl font-bold text-center mb-10">P.H Paribahan</p>
+            <p class="text-gray-600 text-center">
+              Yes, you can run unit tests and view the results directly within
+              the app. The integrated testing features allow for a streamlined.
+            </p>
+          </div>
+          <!-- lower-part-1 -->
+          <div
+            class="bg-white lg:p-10 rounded-3xl grid grid-cols-1 lg:grid-cols-4"
+          >
+            <!-- left -->
+            <div class="col-span-3 mt-10 lg:mt-0">
+              <!-- top -->
+              <div
+                class="flex flex-col lg:flex-row justify-between items-center mb-5"
+              >
+                <!-- left -->
+                <div class="flex flex-col lg:flex-row items-center gap-2">
+                  <div>
+                    <img src="./images/bus-logo.png" alt="" />
+                  </div>
+                  <div>
+                    <p class="text-2xl font-bold mb-2 text-center lg:text-left">
+                      Greenline Paribahan
+                    </p>
+                    <p class="text-gray-600 text-center lg:text-left">
+                      Coach-009-WEB ! AC_Business
+                    </p>
+                  </div>
+                </div>
+                <!-- right -->
+                <div>
+                  <div
+                    class="flex items-center gap-2 bg-btnColor bg-opacity-10 text-btnColor border border-btnColor border-opacity-50 rounded-lg px-6 py-2 mt-3 lg:mt-0"
+                  >
+                    <div><img src="./images/seat-green.png" alt="" /></div>
+                    <p class=""><span id="seats-left">40</span> Seats Left</p>
+                  </div>
+                </div>
+              </div>
+              <!-- bottom -->
+              <div class="bg-[#F7F8F8] p-6 rounded-2xl">
+                <div class="flex justify-between mb-4">
+                  <p class="text-gray-600 font-semibold">Route</p>
+                  <p class="font-semibold">Dhaka-Sylhet</p>
+                </div>
+                <hr class="border-dashed" />
+                <div class="flex justify-between my-4">
+                  <p class="text-gray-600 font-semibold">Departure Time</p>
+                  <p class="font-semibold">9:00 PM</p>
+                </div>
+                <hr class="border-dashed" />
+                <div
+                  class="flex flex-col lg:flex-row gap-4 lg:gap-0 justify-between mt-6"
+                >
+                  <div class="bg-gray-200 p-5 rounded-2xl">
+                    <p class="font-semibold">Boarding Point - Laxmipur</p>
+                  </div>
+                  <div class="bg-gray-200 p-5 rounded-2xl">
+                    <p class="font-semibold">Dropping Point - Bogura</p>
+                  </div>
+                  <div class="bg-gray-200 p-5 rounded-2xl">
+                    <p class="font-semibold">Est. Time - 11 Hour</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- right -->
+            <div class="flex flex-col items-center justify-center gap-2 my-10">
+              <div class="mb-2">
+                <img src="/images/fare.png" alt="" />
+              </div>
+              <p class="text-3xl font-bold">550 Taka</p>
+              <p class="text-gray-600 font-semibold text-2xl">Per Seat</p>
+            </div>
+          </div>
+          <!-- lower-part-2 -->
+          <div
+            class="bg-white rounded-3xl lg:p-10 grid grid-cols-1 lg:grid-cols-5 lg:gap-10 space-y-5 lg:space-y-0"
+            id="seat-selection"
+          >
+            <!-- left -->
+            <div class="col-span-3">
+              <p class="font-semibold text-2xl mb-5">Select Your Seat</p>
+              <hr class="border-dashed mb-5" />
+              <div class="flex items-center justify-between mb-5">
+                <div class="flex items-center gap-2">
+                  <div>
+                    <img src="./images/seat-gray.png" alt="" />
+                  </div>
+                  <p>Available</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <div>
+                    <img src="./images/seat-green-filled.png" alt="" />
+                  </div>
+                  <p>Selected</p>
+                </div>
+              </div>
+              <hr class="border-dashed mb-5" />
+              <div class="flex justify-end mb-5">
+                <div class="bg-gray-200 px-7 py-3 rounded-lg">
+                  <img src="./images/steer.png" alt="" />
+                </div>
+              </div>
+              <!-- Seats -->
+              <div class="space-y-5 lg:space-y-5">
+                <!-- A -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">A</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="0"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      A1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="1"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      A2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="2"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      A3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="3"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      A4
+                    </button>
+                  </div>
+                </div>
+                <!-- B -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">B</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="4"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      B1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="5"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      B2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="6"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      B3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="7"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      B4
+                    </button>
+                  </div>
+                </div>
+                <!-- C -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">C</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="8"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      C1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="9"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      C2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="10"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      C3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="11"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      C4
+                    </button>
+                  </div>
+                </div>
+                <!-- D -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">D</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="12"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      D1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="13"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      D2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="14"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      D3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="15"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      D4
+                    </button>
+                  </div>
+                </div>
+                <!-- E -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">E</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="16"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      E1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="17"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      E2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="18"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      E3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="19"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      E4
+                    </button>
+                  </div>
+                </div>
+                <!-- F -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">F</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="20"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      F1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="21"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      F2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="22"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      F3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="23"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      F4
+                    </button>
+                  </div>
+                </div>
+                <!-- G -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">G</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="24"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      G1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="25"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      G2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="26"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      G3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="27"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      G4
+                    </button>
+                  </div>
+                </div>
+                <!-- H -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">H</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="28"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      H1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="29"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      H2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="30"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      H3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="31"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      H4
+                    </button>
+                  </div>
+                </div>
+                <!-- I -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">I</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="32"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      I1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="33"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      I2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="34"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      I3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="35"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      I4
+                    </button>
+                  </div>
+                </div>
+                <!-- J -->
+                <div class="grid grid-cols-1 lg:grid-cols-10">
+                  <p class="px-7 py-3 text-center lg:text-left">J</p>
+                  <div
+                    class="flex flex-col lg:flex-row space-y-5 lg:space-y-0 justify-between col-span-9"
+                  >
+                    <button
+                      onclick="buttonPressed()"
+                      id="36"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      J1
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="37"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      J2
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="38"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      J3
+                    </button>
+                    <button
+                      onclick="buttonPressed()"
+                      id="39"
+                      class="bg-[#F7F8F8] px-7 py-3 rounded-lg text-center"
+                    >
+                      J4
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- right -->
+            <div class="col-span-2">
+              <p class="font-semibold text-2xl mb-5">Summary</p>
+              <hr class="border-dashed mb-5" />
+              <div class="bg-[#F7F8F8] p-6 rounded-2xl mb-3">
+                <div class="grid grid-cols-3 mb-4">
+                  <p>
+                    Seat<span
+                      id="seatsSelectedCount"
+                      class="bg-btnColor text-white px-2 rounded-lg ml-2"
+                      >0</span
+                    >
+                  </p>
+                  <p class="pl-5">Class</p>
+                  <p class="text-right">Price</p>
+                </div>
+                <hr class="border-dashed mb-5" />
+                <div id="tickets">
+                  <div id="tickets-info"></div>
+                  <hr class="mb-5" />
+                  <div class="flex justify-between">
+                    <p>Total Price</p>
+                    <p>BDT <span id="total-price">0</span></p>
+                  </div>
+                  <div
+                    id="couponDiv"
+                    class="bg-white flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 px-2 py-2 rounded-lg my-3"
+                  >
+                    <input
+                      type="text"
+                      name=""
+                      id="couponInput"
+                      placeholder="Have any coupon?"
+                      class="pl-2"
+                    />
+                    <button
+                      onclick="couponEntered()"
+                      class="bg-gray-200 text-white py-2 px-3 rounded-lg"
+                      disabled
+                      id="coupon-button"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  <div id="discount-div"></div>
+                  <div class="flex justify-between">
+                    <p>Grand Total</p>
+                    <p>BDT <span id="grand-total">0</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex flex-col gap-2">
+                  <label for="name" class="font-semibold"
+                    >Phone Number<sup class="text-red-500">*</sup></label
+                  >
+                  <input
+                    type="number"
+                    name="number"
+                    id="number"
+                    placeholder="Enter your phone number"
+                    class="border py-4 pl-5 rounded-lg"
+                    required
+                  />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label for="name" class="font-semibold">Passenger Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Enter your name"
+                    class="border py-4 pl-5 rounded-lg"
+                    required
+                  />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label for="name" class="font-semibold">Email ID</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email id"
+                    class="border py-4 pl-5 rounded-lg"
+                  />
+                </div>
+                <button
+                  class="bg-gray-200 text-white py-4 rounded-lg w-full !mt-6"
+                  type="button"
+                  id="next-button"
+                  disabled
+                  onclick="my_modal_5.showModal()"
+                >
+                  Next
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  class="modal modal-bottom sm:modal-middle"
+                >
+                  <div class="modal-box">
+                    <h3 class="text-xl font-bold text-btnColor text-center">Success!</h3>
+                    <p class="pt-5 text-center">
+                      Thank you for Booking Our Bus Seats. <br> We are working hard
+                      to find the best service and deals for you. <br> Shortly you
+                      will find a confirmation sent to your number.
+                    </p>
+                    <div class="modal-action flex justify-center">
+                      <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn bg-btnColor text-white">Continue</button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
+              </div>
+              <div
+                class="flex flex-col lg:flex-row items-center lg:justify-evenly space-y-2 lg:space-y-0 mt-5"
+              >
+                <a href="" class="underline text-grayColor"
+                  >Terms and Conditions</a
+                >
+                <a href="" class="underline text-grayColor"
+                  >Cancellation Policy</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-black p-10 lg:p-20 text-white">
+      <div class="flex flex-col lg:flex-row justify-between space-y-5 lg:space-y-0 mb-10">
+        <div>
+          <h2 class="font-extrabold text-3xl mb-5">P-Ticket</h2>
+          <p class="text-gray-400">P-Ticket is a digital platform to make your daily commuting better.</p>
+        </div>
+        <div>
+          <p class="lg:text-right mb-2">Download our app</p>
+          <div>
+            <a href="">
+              <button class="flex items-center gap-2 border border-white rounded-lg py-1 px-2">
+                <div>
+                  <img src="./images/playstore.png" alt="">
+                </div>
+                <div>
+                  <p class="text-xs lg:text-left">GET IT ON</p>
+                  <p>Google Play</p>
+                </div>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-dashed mb-6 border-gray-600" />
+      <div class="flex flex-col-reverse lg:flex-row justify-between gap-5 lg:gap-0">
+        <div>
+          <p class="text-gray-400">@All rights reserved, P-Ticket services limited.2024</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-5 font-semibold">
+          <a href="">Terms & condition</a>
+          <a href="">Return & refund policy</a>
+          <a href="">Privacy policy</a>
+        </div>
+      </div>
+    </footer>
+    <!-- JS -->
+    <script src="index.js"></script>
+  </body>
+</html>
